@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fitme</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	  	apiKey: "AIzaSyDnqhJLSLgP7LFlOt_RjzR2JBAhnLq-RMY",
+	  	authDomain: "fitme-fc282.firebaseapp.com",
+	  	databaseURL: "https://fitme-fc282.firebaseio.com",
+	  	storageBucket: "fitme-fc282.appspot.com",
+	  };
+	  firebase.initializeApp(config);
+	  var myRef = firebase.database().ref();
+	</script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>				
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1 class="well">Stopwatch</h1>
+		<div class="col-lg-6 well">
+			<div class="row timer" class="col-md-offset-5">
+		        <h1 id="timer">00 : 00 : 000</h1>
+		        <button class="btn btn-success" id="toggle">Start</button>
+		        <button class="btn btn-info" id="reset">Reset</button>
+		    </div>
+    	</div>
+	</div>
+
+	<div class="container">
+		<h1 class="well">Select day</h1>
+		<div class="col-lg-6 well">
+			
+				<button class="btnDay btn btn-default" id="onsdag">Onsdag</button>
+				<button class="btnDay btn btn-default" id="torsdag">Torsdag</button>
+				<button class="btnDay btn btn-default" id="fredag">Fredag</button>
+				<button class="btnDay btn btn-default" id="lordag">Lørdag</button>
+				<button class="btnDay btn btn-default" id="sondag">Søndag</button>
+				<button class="btnDay btn btn-default" id="mandag">Mandag</button>
+		</div>
+
+		<div class="col-lg-6 well">
+			
+			<button class="btn btn-default" id="addEx">Add exercise</button>
+			<button class="btn btn-default" id="showAll">Show all</button>
+			
+		</div>
+	</div>	
+
+	
+	<div class="container"  id="workout">
+		<h1 class="well">Workout plan</h1>
+		<div class="col-lg-12 well">
+			<div class="row">
+				<div  id="main"></div>
+			</div>
+			<div class="row">
+        			<div id="exDetail"></div>
+ 			</div>
+		</div>
+	</div>
+
+
+	<div class="container" id="regForm">
+		<h1 class="well">Registration Form</h1>
+		<div class="col-lg-8 well">
+			<div class="row">
+				
+				<form id="addForm">
+				 <input type="hidden" id="key">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Exercise day</label>
+								<input type="text" placeholder="Enter day for exercise.." class="form-control" id="day">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Exercise Name</label>
+								<input type="text" placeholder="Enter Exercise Name Here.." class="form-control" id="exercise">
+							</div>
+						</div>					
+						<div class="form-group">
+							<label>Info</label>
+							<textarea placeholder="Enter Info Here.." rows="3" class="form-control" id="info"></textarea>
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>Weight</label>
+								<input type="text" placeholder="Enter Weight Here.." class="form-control" id="weight">
+							</div>	
+							<div class="col-sm-6 form-group">
+								<label>IMG</label>
+								<div class="col-sm-6 input-group">
+								<input type="text" placeholder="Enter IMG URL Here.." class="form-control" id="img">
+								   <span class="input-group-btn">
+								        <button class="btn btn-danger" id="clearImg" type="button">Clear!</button>
+								   </span>
+								</div>
+							</div>		
+						</div>
+						<button  type="button" id="saveBtn" class="btn btn-lg btn-success">Save Exercise</button>
+					</div>
+				</form> 
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+	<!-- <script src="js/addexercise.js"></script> -->
+	<script src="js/workout.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
