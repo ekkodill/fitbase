@@ -2,6 +2,13 @@ body {
 	padding-top: 65px;
 }
 
+.timer {
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size:2em;
+}
+
+
 
 .btn-circle {
   width: 30px;
@@ -40,4 +47,22 @@ body {
 
 #regForm {
 	display: none;
+}
+
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:25px;
+
+  }
+
+  #sidebar.affix {
+    position: fixed;
+		padding-left: 10px;
+  }
+}
+
+.affix,.affix-top {
+   position:static;
 }
