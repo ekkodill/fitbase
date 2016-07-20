@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Fitme</title>
@@ -7,78 +8,75 @@
 	<link href="css/style.css" rel="stylesheet">
 	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
 	<script>
-	  // Initialize Firebase
-	  var config = {
-	  	apiKey: "AIzaSyDnqhJLSLgP7LFlOt_RjzR2JBAhnLq-RMY",
-	  	authDomain: "fitme-fc282.firebaseapp.com",
-	  	databaseURL: "https://fitme-fc282.firebaseio.com",
-	  	storageBucket: "fitme-fc282.appspot.com",
-	  };
-	  firebase.initializeApp(config);
-	  var myRef = firebase.database().ref();
+
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDnqhJLSLgP7LFlOt_RjzR2JBAhnLq-RMY",
+			authDomain: "fitme-fc282.firebaseapp.com",
+			databaseURL: "https://fitme-fc282.firebaseio.com",
+			storageBucket: "fitme-fc282.appspot.com",
+		};
+		firebase.initializeApp(config);
+		var myRef = firebase.database().ref();
 	</script>
 </head>
+
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.html">Home</a></li>				
+				<li><a href="index.html">Workout</a></li>
+				<li><a href="plan.html">Plan</a></li>
+				<li><a href="info.html">Info</a></li>
 			</ul>
 		</div>
 	</nav>
 
-	<div class="container">
-		<h1 class="well">Stopwatch</h1>
-		<div class="col-lg-6 well">
-			<div class="row timer" class="col-md-offset-5">
-		        <h1 id="timer">00 : 00 : 000</h1>
-		        <button class="btn btn-success" id="toggle">Start</button>
-		        <button class="btn btn-info" id="reset">Reset</button>
-		    </div>
-    	</div>
-	</div>
 
-	<div class="container">
-		<h1 class="well">Select day</h1>
-		<div class="col-lg-6 well">
-			
+
+	<div class="col-md-3">
+		<div class="container">
+		<div class="list-group" id="sidebar">
+			<div class="row">
+				<h1 class="well text-center">Stopwatch</h1>
+				<div class="col-lg-12 well">
+					<div class="row timer text-center">
+						<!-- <h1 id="timer">00 : 00 : 000</h1> -->
+            <p><span id="minutes">00</span>:<span id="seconds">00</span></p>
+						<button class="btn btn-success" id="button-start">Start</button>
+						<button class="btn btn-info" id="button-reset">Reset</button>
+            <button class="btn btn-danger" id="button-stop">Stop</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="exDetail"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="col-md-8">
+		<div class="container">
+			<h1 class="well">Select day</h1>
+			<div class="col-lg-6 well">
+
 				<button class="btnDay btn btn-default" id="onsdag">Onsdag</button>
 				<button class="btnDay btn btn-default" id="torsdag">Torsdag</button>
 				<button class="btnDay btn btn-default" id="fredag">Fredag</button>
 				<button class="btnDay btn btn-default" id="lordag">Lørdag</button>
 				<button class="btnDay btn btn-default" id="sondag">Søndag</button>
-				<button class="btnDay btn btn-default" id="mandag">Mandag</button>
-		</div>
-
-		<div class="col-lg-6 well">
-			
-			<button class="btn btn-default" id="addEx">Add exercise</button>
-			<button class="btn btn-default" id="showAll">Show all</button>
-			
-		</div>
-	</div>	
-
-	
-	<div class="container"  id="workout">
-		<h1 class="well">Workout plan</h1>
-		<div class="col-lg-12 well">
-			<div class="row">
-				<div  id="main"></div>
+				<button class="btn btn-primary pull-right" id="addEx">Add exercise</button>
 			</div>
-			<div class="row">
-        			<div id="exDetail"></div>
- 			</div>
+
+
 		</div>
-	</div>
 
-
-	<div class="container" id="regForm">
-		<h1 class="well">Registration Form</h1>
-		<div class="col-lg-8 well">
-			<div class="row">
-				
+		<div class="container" id="regForm">
+			<h1 class="well">Registration Form</h1>
+			<div class="col-lg-12 well">
 				<form id="addForm">
-				 <input type="hidden" id="key">
+					<input type="hidden" id="key">
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
@@ -89,38 +87,121 @@
 								<label>Exercise Name</label>
 								<input type="text" placeholder="Enter Exercise Name Here.." class="form-control" id="exercise">
 							</div>
-						</div>					
+						</div>
 						<div class="form-group">
 							<label>Info</label>
 							<textarea placeholder="Enter Info Here.." rows="3" class="form-control" id="info"></textarea>
-						</div>	
+						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>Weight</label>
 								<input type="text" placeholder="Enter Weight Here.." class="form-control" id="weight">
-							</div>	
+							</div>
 							<div class="col-sm-6 form-group">
 								<label>IMG</label>
 								<div class="col-sm-6 input-group">
-								<input type="text" placeholder="Enter IMG URL Here.." class="form-control" id="img">
-								   <span class="input-group-btn">
-								        <button class="btn btn-danger" id="clearImg" type="button">Clear!</button>
-								   </span>
+									<input type="text" placeholder="Enter IMG URL Here.." class="form-control" id="img">
+									<span class="input-group-btn">
+												<button class="btn btn-danger" id="clearImg" type="button">Clear!</button>
+									 </span>
 								</div>
-							</div>		
+							</div>
 						</div>
-						<button  type="button" id="saveBtn" class="btn btn-lg btn-success">Save Exercise</button>
+						<button type="button" id="saveBtn" class="btn btn-lg btn-success">Save Exercise</button>
 					</div>
-				</form> 
+				</form>
 			</div>
 		</div>
+
+
+		<div class="container" id="workout">
+			<h1 class="well">Workout plan</h1>
+			<div class="col-lg-12 well">
+				<div class="row">
+					<div id="main"></div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
+
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	
+
 	<!-- <script src="js/addexercise.js"></script> -->
 	<script src="js/workout.js"></script>
 	<script src="js/app.js"></script>
+	<script>
+	$('#sidebar').affix({
+		offset: {
+			top: $('header').height()
+		}
+	});
+
+  window.onload = function () {
+
+  var seconds = 00;
+  var minutes = 00;
+  var appendSeconds = document.getElementById("seconds")
+  var appendMinutes = document.getElementById("minutes")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
+
+  buttonStart.onclick = function() {
+
+     clearInterval(Interval);
+     Interval = setInterval(startTimer, 1000);
+  }
+
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+  }
+
+
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    reset = "00";
+  	seconds = 0;
+    minutes = 0;
+    appendSeconds.innerHTML = reset;
+    appendMinutes.innerHTML = reset;
+  }
+
+
+
+  function startTimer () {
+
+    seconds++;
+
+    if(seconds < 9) {
+      appendSeconds.innerHTML = "0" + seconds;
+    }
+
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+
+    if(seconds > 59) {
+      minutes++;
+      appendMinutes.innerHTML = "0" + minutes;
+      seconds = 0;
+      appendSeconds.innerHTML = "0" + 0;
+    }
+
+    if (minutes > 9){
+      appendSeconds.innerHTML = minutes;
+    }
+
+  }
+
+
+}
+	</script>
 </body>
+
 </html>

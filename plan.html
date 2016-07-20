@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Fitme</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+		td {
+			padding: 0 10px 10px 10px;
+		}
+
+		#content {
+			display: block;
+			float: left;
+		}
+
+		span {
+			margin-left: 20px;
+			border: solid 1px red;
+		}
+		.inputs {
+			width: 600px;
+		}
+
+		.blocks {
+				display: inline-block;
+				margin: 20px 0 0 20px;
+				width: 600px;
+}
+
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Workout</a></li>
+				<li><a href="info.html">Info</a></li>
+			</ul>
+		</div>
+	</nav>
+
+<div class="container" id="content">
+	<table>
+		<tr>
+		<th>Mandag</th>
+		<th>Tirsdag</th>
+		<th>Onsdag</th>
+		<th>Torsdag</th>
+		<th>Fredag</th>
+		<th>Lørdag</th>
+		<th>Søndag</th>
+		</tr>
+		<tr>
+			<th>Cardio</th>
+			<th>Free</th>
+			<th>Chest & Abs</th>
+			<th>Back & calves</th>
+			<th>Shoulders & Abs</th>
+			<th>Legs</th>
+			<th>Upper body & abs</th>
+		</tr>
+		<tr>
+			<td>Varden</td>
+			<td></td>
+			<td>
+				<p>Oppvarming: benkpress</p>
+				<p>Benkpress 3 sett 4-6 reps</p>
+				<p>Incline benchpress 3 sett 4-6 reps</p>
+				<p>flat dumbbell press 3 sett 4-6 reps</p>
+				<p>Ab circuit 1</p>
+				<p>4-5 timer senere: sykkel \ hoppetau HIIT 20-30min</p>
+			</td>
+			<td>
+				<p>Oppvarming: Barbell deadlift</p>
+				<p>Barbell deadlift 3 sett 4-6 reps</p>
+				<p>dumbbell row 3 sett 4-6 reps</p>
+				<p>Wide grip pull up 3 sett 4-6 reps</p>
+				<p>Standing calf raise or seated 6 sett 10-12 reps</p>
+			</td>
+			<td>
+				<p>Oppvarming: Seated barbell military press</p>
+				<p>Seated barbell military press 3 sett 4-6 reps</p>
+				<p>Side lateral raise 3 sett 4-6 reps</p>
+				<p>bent over rear delt raise 3 sett 4-6 reps</p>
+				<p>Ab circuit</p>
+			</td>
+			<td>
+				<p>Oppvarming: barbell squat</p>
+				<p>Barbell squat 3 sett 4-6 reps</p>
+				<p>Front squat 3 sett 4-6 reps</p>
+				<p>Romanian deadlift 3 sett 4-6 reps</p>
+				<p>Standing calf raise 3 sett 4-6 reps</p>
+				<p>Seated calf raise 3 sett 4-6 reps</p>
+			</td>
+			<td>
+				<p>Oppvarming: Incline barbell benchpress</p>
+				<p>Incline barbell benchpress 3 sett 8-10 reps</p>
+				<p>Oppvarming: barbell curl</p>
+				<p>Barbell curl 3 sett 4-6 reps</p>
+				<p>Close-grip benchpress 3 sett 4-6 reps</p>
+				<p>Alternating dumbbell curl 3 sett 4-6 reps</p>
+				<p>seated triceps press 3 sett 4-6 reps</p>
+				<p>Ab circuit</p>
+				<p>4-5 timer senerecardio sykkel \ hoppetau</p>
+			</td>
+		</tr>
+	</table>
+	<div class="col-md-4">
+	<h2>Oppvarming</h2>
+	<p>
+		Første set: 12 reps 50% maks vekt. 1 min pause.
+	</p>
+	<p>Andre set: 10 reps samme vekt. 1 min pause</p>
+	<p>Tredje set: 4 reps 70% maks vekt. 1 min pause</p>
+	<p>Fjerde set: 1 rep 90% maks vekt. 2-3min pause</p>
+</div>
+<div class="col-md-4">
+	<div class="inputs">
+		<h2>Weight calulation</h2>
+
+	<div class="blocks">
+	50% of <input  type="text" name="calc50" id="calc50">
+	<span id="50off"></span>
+	</div>
+
+	<div class="blocks">
+	70% of <input  type="text" name="calc" id="calc70">
+	<span id="70off"></span>
+	</div>
+
+	<div class="blocks">
+	85% of <input  type="text" name="calc" id="calc85">
+	<span id="85off"></span>
+	</div>
+
+	<div class="blocks">
+	90% of <input  type="text" name="calc" id="calc90">
+	<span id="90off"></span>
+
+	</div>
+<!-- onclick="calc(90, 'calc90', '90off');" -->
+	</div>
+</div>
+
+<div class="col-md-12">
+	<h2>Ab circuit</h2>
+	<p>Hanging Knee Raise - 3sett så mange man klarer </p>
+	<p>Ab wheel 3 sett så mange man klarer</p>
+	<p>bicycles 3 sett så mange man klarer</p>
+</div>
+
+
+
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+	function calc(off, tall) {
+		var result = (off / 100) * tall;
+		var rounded = Math.round(result * 100) / 100;
+	return rounded;
+	}
+
+	$( document ).ready(function() {
+   $( ":input" ).keyup(function() {
+		 	var tall = this.value;
+			var vektoff = $(this).next().attr('id').substr(0, 2);
+			var nytall = calc(tall, vektoff);
+			$(this).next().text(nytall);
+   });
+});
+
+
+</script>
+</html>
